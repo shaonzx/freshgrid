@@ -1,0 +1,301 @@
+/*
+Theme Name: GrocefyCart
+Theme URI: https://cozythemes.com/grocefycart-wordpress-theme/
+Author: CozyThemes
+Author URI: https://cozythemes.com/
+Description: GrocefyCart is a modern, feature-rich WooCommerce theme designed for online grocery stores, offering 100% control over your site’s design with Full Site Editing (FSE). It lets you customize every element — from headers and footers to product pages and blog layouts — ensuring a seamless fit with your brand’s style. Perfect for selling fresh produce, beverages, pantry essentials, or organic products, GrocefyCart comes with professionally crafted starter demos and a one-click demo import feature, making setup quick and effortless. Its pre-built sections and templates allow you to create a high-converting store without coding, while built-in speed, SEO, and mobile optimization ensure a smooth shopping experience for your customers. Start building your grocery store today with GrocefyCart — discover all features and live demos at https://cozythemes.com/grocefycart-ecommerce-theme/
+Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, e-commerce, full-site-editing, block-patterns, full-width-template, rtl-language-support, threaded-comments, translation-ready, block-styles, wide-blocks
+Version: 1.0.9
+Requires at least: 6.6
+Tested up to: 7.1
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: grocefycart
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+.entry-content.wp-block-post-content a,
+.wp-block-comment-content a,
+p a {
+  text-decoration: underline;
+}
+/* -------------------- WooCommerce -------------------- */
+.grocefycart-categories-dropdown .wp-block-categories__label {
+  display: none;
+}
+.grocefycart-categories-dropdown .wp-block-categories-dropdown select {
+  appearance: none;
+  border: none;
+  outline: none;
+  color: var(--wp--preset--color--light);
+  font-size: var(--wp--preset--font-size--normal);
+  font-family: var(--wp--preset--font-family--inter);
+  background-color: inherit;
+  font-weight: 400;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.grocefycart-categories-dropdown select option {
+  padding: 5px 8px !important;
+  color: var(--wp--preset--color--foreground);
+}
+.grocefycart-categories-dropdown .wp-block-categories-dropdown button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: var(--wp--preset--color--transparent);
+}
+.grocefycart-categories-dropdown .wp-block-categories-dropdown button > svg {
+  fill: var(--wp--preset--color--light);
+}
+.grocefycart-categories-dropdown .wp-block-categories-dropdown button > svg:hover {
+  fill: var(--wp--preset--color--secondary);
+}
+/* Slider Marquee */
+.grocefycart-marquee-wrapper {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+.grocefycart-marquee-content {
+  position: relative;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+  padding-right: 2rem;
+  animation: grocefycart-marquee 15s linear infinite;
+  flex-wrap: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.grocefycart-marquee-content:hover {
+  animation-play-state: paused;
+}
+.grocefycart-marquee-wrapper .grocefycart-marquee-content.block-editor-block-list__block,
+.grocefycart-marquee-content.block-editor-block-list__block {
+  animation: none;
+}
+.grocefycart-marquee-content p {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  flex: 1 0 auto;
+  margin-block-start: 0;
+  white-space: nowrap;
+  flex: 1 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.grocefycart-marquee-content p:before {
+  content: url(assets/images/union.svg);
+  margin-right: 1em;
+  font-size: var(--wp--preset--font-size--large);
+}
+@keyframes grocefycart-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/* ********** Page List ********** */
+ul.grocefycart-page-list-padding {
+  padding: 0px;
+}
+/* ********** Contact Form 7 ********** */
+.wpcf7 form input {
+  padding: 1em;
+  font-size: var(--wp--preset--font-size--normal);
+  color: var(--wp--preset--color--foreground);
+  width: -webkit-fill-available;
+  border: none;
+  outline: none;
+}
+.wpcf7 form input[type="submit"] {
+  background-color: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--light);
+  padding: 1em;
+}
+.wpcf7 form input[type="submit"]:hover {
+  background-color: var(--wp--preset--color--secondary);
+  color: var(--wp--preset--color--dark-shade);
+}
+/* contact Newsletter 1 */
+.grocefycart-contact-newsletter-1 form p input,
+.grocefycart-contact-newsletter-1 form p textarea {
+  padding: 10px;
+  margin-bottom: 1em;
+  font-size: var(--wp--preset--font-size--normal);
+  border: 1px solid var(--wp--preset--color--dark-shade);
+  width: -webkit-fill-available;
+}
+.grocefycart-contact-newsletter-1 form p input[type="submit"] {
+  padding: 10px;
+  font-size: var(--wp--preset--font-size--medium) !important;
+  background: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--light);
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+.grocefycart-contact-newsletter-1 form p input[type="submit"]:hover {
+  padding: 10px;
+  font-size: var(--wp--preset--font-size--medium) !important;
+  background: var(--wp--preset--color--secondary);
+  color: var(--wp--preset--color--light);
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+/* contact Newsletter 2 */
+.grocefycart-contact-newsletter-2 form {
+  position: relative;
+  width: 100%;
+}
+.grocefycart-contact-newsletter-2 form p input {
+  padding: 12px;
+  margin-bottom: 5px;
+  font-size: var(--wp--preset--font-size--normal);
+  color: var(--wp--preset--color--dark-shade);
+  border: 1px solid var(--wp--preset--color--border-color);
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+.grocefycart-contact-newsletter-2 form p textarea {
+  padding: 12px;
+  margin-bottom: 5px;
+  font-size: var(--wp--preset--font-size--normal);
+  border: 1px solid var(--wp--preset--color--border-color);
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+.grocefycart-contact-newsletter-2 form p input[type="submit"] {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  padding: 12px;
+  font-size: var(--wp--preset--font-size--normal) !important;
+  background: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--light);
+  width: fit-content;
+  border: 1px solid var(--wp--preset--color--primary);
+  transition: all 0.2s ease-in-out;
+}
+.grocefycart-contact-newsletter-2 form p input[type="submit"]:hover {
+  background: var(--wp--preset--color--secondary);
+  color: var(--wp--preset--color--light);
+  border: 1px solid var(--wp--preset--color--secondary);
+  transition: all 0.2s ease-in-out;
+}
+/* contact Newsletter 3 - Rounded */
+.grocefycart-contact-newsletter-3 form {
+  position: relative;
+  width: 100%;
+}
+.grocefycart-contact-newsletter-3 form p input {
+  padding: 13px;
+  margin-bottom: 5px;
+  font-size: var(--wp--preset--font-size--normal);
+  color: var(--wp--preset--color--dark-shade);
+  border: 1px solid var(--wp--preset--color--border-color);
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 100px;
+  transition: all 0.2s ease-in-out;
+}
+.grocefycart-contact-newsletter-3 form p textarea {
+  padding: 12px;
+  margin-bottom: 5px;
+  font-size: var(--wp--preset--font-size--normal);
+  border: 1px solid var(--wp--preset--color--border-color);
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 100px;
+  transition: all 0.2s ease-in-out;
+}
+.grocefycart-contact-newsletter-3 form p input[type="submit"] {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  padding: 13px;
+  font-size: var(--wp--preset--font-size--normal) !important;
+  background: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--light);
+  width: fit-content;
+  border: 1px solid var(--wp--preset--color--primary);
+  border-radius: 100px;
+  transition: all 0.2s ease-in-out;
+}
+.grocefycart-contact-newsletter-3 form p input[type="submit"]:hover {
+  background: var(--wp--preset--color--secondary);
+  color: var(--wp--preset--color--light);
+  border: 1px solid var(--wp--preset--color--secondary);
+  transition: all 0.2s ease-in-out;
+}
+/* contact Newsletter 4 */
+.grocefycart-contact-newsletter-4 form p input,
+.grocefycart-contact-newsletter-4 form p textarea {
+  padding: 10px;
+  margin-bottom: 5px;
+  font-size: var(--wp--preset--font-size--normal);
+  border: 1px solid var(--wp--preset--color--light);
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 100px;
+}
+.grocefycart-contact-newsletter-4 form p input[type="submit"] {
+  padding: 10px;
+  font-size: var(--wp--preset--font-size--medium) !important;
+  background: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--light);
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 100px;
+}
+.grocefycart-contact-newsletter-4 form p input[type="submit"]:hover {
+  padding: 10px;
+  font-size: var(--wp--preset--font-size--medium) !important;
+  background: var(--wp--preset--color--secondary);
+  color: var(--wp--preset--color--light);
+  border: 1px solid var(--wp--preset--color--secondary);
+  width: 100%;
+}
+/* Product Categories */
+.wp-block-group.grocefycart-product-group-wrapper .wp-block-group.is-style-grocefycart-product-group img.attachment-woocommerce_single,
+.wp-block-group.is-style-grocefycart-product-group .wp-block-button.wc-block-components-product-button {
+  transition: all 0.2s ease-in-out;
+}
+.wp-block-group.grocefycart-product-group-wrapper:hover .wp-block-group.is-style-grocefycart-product-group img.attachment-woocommerce_single {
+  opacity: 0.6;
+}
+.wp-block-group.is-style-grocefycart-product-wrapper:hover .wp-block-group.is-style-grocefycart-product-group img.attachment-woocommerce_single {
+  opacity: 0.6;
+}
+.wp-block-group.grocefycart-product-group-wrapper:hover .wp-block-button.wc-block-components-product-button {
+  bottom: 13px;
+  opacity: 1;
+}
+.wp-block-group.is-style-grocefycart-product-group {
+  position: relative;
+  overflow: hidden;
+}
+.wp-block-group.is-style-grocefycart-product-group .wp-block-button.wc-block-components-product-button {
+  position: absolute;
+  bottom: -100px;
+  width: 90%;
+  left: 5%;
+  opacity: 0;
+}
+
+.wp-block-group.is-style-grocefycart-product-wrapper:hover .wp-block-button.wc-block-components-product-button .wp-block-button__link:hover {
+  background-color: var(--wp--preset--color--primary) !important;
+  color: #fff !important;
+}

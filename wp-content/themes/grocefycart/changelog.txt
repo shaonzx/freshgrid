@@ -1,0 +1,32 @@
+= 1.0.9 - September 29, 2026 =
+* Update: Plugin installation
+
+= 1.0.8 - September 20, 2026 =
+* Update: Theme dashbaord
+
+= 1.0.6 - September 12, 2026 =
+* Tested upto WordPress 7.1
+
+= 1.0.5 - May 27, 2026 =
+* Update: Admin dashboard UI
+* Tested upto WordPress 7.0
+
+= 1.0.4 - May 27, 2025 =
+* Update : Feature Block.
+* Update: Header Searchbar.
+* Update: Single Product Template.
+* Fix : Contact form style compatible on firefox.
+* Tested upto 6.8
+
+= 1.0.3 - Mar 27, 2025 =
+* Update : Screenshot.
+
+= 1.0.2 - Mar 27, 2025 =
+* Initial release with fixes based on initial reviews.
+
+= 1.0.1 - Mar 27, 2025 =
+* Fix : Skip To Content issue has been solved.
+* Fix : Missing strings made translation-ready.
+
+= 1.0.0 - Mar 18, 2025 =
+* Initial release

@@ -1,0 +1,814 @@
+.wp-block-template-part {
+  margin: 0;
+}
+/* ********** Group ********** */
+/* Box Shadow */
+.is-style-grocefycart-boxshadow-light {
+  box-shadow: 0px 8px 30px 0px rgba(2, 27, 11, 0.1);
+}
+.is-style-grocefycart-boxshadow-medium {
+  box-shadow: 0px 8px 30px 0px rgba(2, 27, 11, 0.3);
+}
+.is-style-grocefycart-boxshadow-large {
+  box-shadow: 0px 8px 30px 0px rgba(2, 27, 11, 0.5);
+}
+.is-style-grocefycart-boxshadow-hover {
+  box-shadow: none;
+  transform: translateY(0px);
+  transition: all 0.2s ease-in-out;
+}
+.is-style-grocefycart-boxshadow-hover:hover {
+  box-shadow: 0px 8px 30px 0px rgba(2, 27, 11, 0.1);
+  transform: translateY(-3px);
+  transition: all 0.2s ease-in-out;
+}
+/* Overflow Hidden */
+.is-style-grocefycart-overflow-hidden {
+  overflow: hidden;
+}
+/* ********** Categories List ********** */
+ul.is-style-grocefycart-categories-primary li {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid var(--wp--preset--color--border-color);
+  color: var(--wp--preset--color--primary);
+}
+ul.is-style-grocefycart-categories-secondary li {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid var(--wp--preset--color--border-color);
+  color: var(--wp--preset--color--secondary);
+}
+ul.is-style-grocefycart-categories-terniary li {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid var(--wp--preset--color--border-color);
+  color: var(--wp--preset--color--terniary);
+}
+
+/* ********** Categories ********** */
+.is-style-categories-primary-background .wp-block-post-terms__separator,
+.is-style-categories-secondary-background .wp-block-post-terms__separator,
+.is-style-categories-terniary-background .wp-block-post-terms__separator,
+.is-style-categories-rounded-background .wp-block-post-terms__separator,
+.is-style-categories-faded-background .wp-block-post-terms__separator {
+  visibility: hidden;
+}
+.is-style-categories-primary-background a,
+.is-style-categories-secondary-background a,
+.is-style-categories-terniary-background a,
+.is-style-categories-mixed-background a,
+.is-style-categories-faded-background a {
+  padding: 5px 12px;
+  border-radius: 100px;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+}
+
+.is-style-categories-primary-background a:hover,
+.is-style-categories-secondary-background a:hover,
+.is-style-categories-terniary-background a:hover,
+.is-style-categories-mixed-background a:hover,
+.is-style-categories-faded-background a:hover {
+  transform: translateY(-3px);
+}
+
+/* Primary */
+.is-style-categories-primary-background a {
+  background: var(--wp--preset--color--primary);
+}
+.is-style-categories-primary-background a:hover {
+  background: var(--wp--preset--color--secondary);
+}
+/* Secondary */
+.is-style-categories-secondary-background a {
+  background: var(--wp--preset--color--secondary);
+}
+.is-style-categories-secondary-background a:hover {
+  background: var(--wp--preset--color--terniary);
+}
+/* Terniary */
+.is-style-categories-terniary-background a {
+  background: var(--wp--preset--color--terniary);
+}
+.is-style-categories-terniary-background a:hover {
+  background: var(--wp--preset--color--primary);
+}
+
+/* Mixed */
+.is-style-categories-mixed-background a:nth-child(3n + 1) {
+  background: var(--wp--preset--color--primary);
+}
+.is-style-categories-mixed-background a:nth-child(3n + 2) {
+  background: var(--wp--preset--color--secondary);
+}
+.is-style-categories-mixed-background a:nth-child(3n) {
+  background: var(--wp--preset--color--terniary);
+}
+/* Faded */
+.is-style-categories-faded-background a {
+  background: color-mix(
+    in srgb,
+    var(--wp--preset--color--primary) 10%,
+    transparent
+  );
+}
+/* ********** Post Date ********** */
+.is-style-grocefycart-date-icon-dark:before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask-image: url(../images/calendar-1.png);
+  mask-image: url(../images/calendar-1.png);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  margin-right: 5px;
+}
+.is-style-grocefycart-date-icon-light:before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask-image: url(../images/calendar-2.png);
+  mask-image: url(../images/calendar-2.png);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  margin-right: 5px;
+}
+/* ********** Post Author ********** */
+.is-style-grocefycart-author-icon-light.wp-block-post-author-name::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask-image: url(../images/author-2.png);
+  mask-image: url(../images/author-2.png);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  margin-right: 5px;
+}
+.is-style-grocefycart-author-icon-dark.wp-block-post-author-name::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask-image: url(../images/author-1.png);
+  mask-image: url(../images/author-1.png);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  margin-right: 5px;
+}
+/* ********** Search ********** */
+.is-style-grocefycart-search-primary .wp-block-search__inside-wrapper > *,
+.is-style-grocefycart-search-secondary .wp-block-search__inside-wrapper > *,
+.is-style-grocefycart-search-terniary .wp-block-search__inside-wrapper > *,
+.is-style-grocefycart-search-rounded
+  .wp-block-search__inside-wrapper
+  > button
+  svg {
+  transform: translateY(0px);
+  transition: all 0.2s ease-in-out;
+}
+/* Primary */
+.is-style-grocefycart-search-primary
+  .wp-block-search__inside-wrapper
+  > button:hover {
+  background-color: var(--wp--preset--color--primary) !important;
+  transition: all 0.2s ease-in-out;
+}
+.is-style-grocefycart-search-primary
+  .wp-block-search__inside-wrapper
+  > button:hover
+  svg {
+  transform: translateY(-3px);
+  fill: var(--wp--preset--color--white);
+  transition: all 0.2s ease-in-out;
+}
+/* Secondary */
+.is-style-grocefycart-search-secondary
+  .wp-block-search__inside-wrapper
+  > button:hover {
+  background-color: var(--wp--preset--color--secondary) !important;
+  transition: all 0.2s ease-in-out;
+}
+.is-style-grocefycart-search-secondary
+  .wp-block-search__inside-wrapper
+  > button:hover
+  svg {
+  transform: translateY(-3px);
+  fill: var(--wp--preset--color--white);
+  transition: all 0.2s ease-in-out;
+}
+/* Terniary */
+.is-style-grocefycart-search-ternairy
+  .wp-block-search__inside-wrapper
+  > button:hover {
+  background-color: var(--wp--preset--color--terniary) !important;
+  transition: all 0.2s ease-in-out;
+}
+.is-style-grocefycart-search-terniary
+  .wp-block-search__inside-wrapper
+  > button:hover
+  svg {
+  transform: translateY(-3px);
+  fill: var(--wp--preset--color--white);
+  transition: all 0.2s ease-in-out;
+}
+/* Rounded */
+.is-style-grocefycart-search-rounded .wp-block-search__inside-wrapper {
+  border: 1px solid var(--wp--preset--color--border-color);
+  padding-left: 5px;
+  border-radius: 100px;
+}
+.is-style-grocefycart-search-rounded .wp-block-search__inside-wrapper input {
+  border-radius: 100px 0px 0px 100px !important;
+  outline: none;
+  border: none;
+}
+.is-style-grocefycart-search-rounded .wp-block-search__inside-wrapper button {
+  border-radius: 0px 100px 100px 0px !important;
+  margin-left: 0;
+}
+.is-style-grocefycart-search-rounded
+  .wp-block-search__inside-wrapper
+  > button:hover
+  svg {
+  fill: var(--wp--preset--color--white);
+  transform: translateY(-3px);
+  transition: transform 0.2s ease-in-out;
+}
+/* ********** Navigation ********** */
+/* Primary */
+.wp-block-navigation.is-style-grocefycart-navigation-primary
+  li.current-menu-item {
+  color: var(--wp--preset--color--primary) !important;
+}
+.wp-block-navigation.is-style-grocefycart-navigation-primary
+  .wp-block-navigation-item__content.wp-block-navigation-item__content:hover {
+  color: var(--wp--preset--color--primary);
+}
+.is-style-grocefycart-navigation-primary.wp-block-navigation
+  ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu
+  .wp-block-navigation-item__content.wp-block-navigation-item__content:hover {
+  color: var(--wp--preset--color--primary);
+}
+/* Secondary */
+.wp-block-navigation.is-style-grocefycart-navigation-secondary
+  li.current-menu-item {
+  color: var(--wp--preset--color--secondary) !important;
+}
+.wp-block-navigation.is-style-grocefycart-navigation-secondary
+  .wp-block-navigation-item__content.wp-block-navigation-item__content:hover {
+  color: var(--wp--preset--color--secondary);
+}
+.is-style-grocefycart-navigation-secondary.wp-block-navigation
+  ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu
+  .wp-block-navigation-item__content.wp-block-navigation-item__content:hover {
+  color: var(--wp--preset--color--secondary);
+}
+/* Terniary */
+.wp-block-navigation.is-style-grocefycart-navigation-terniary
+  li.current-menu-item {
+  color: var(--wp--preset--color--terniary) !important;
+}
+.wp-block-navigation.is-style-grocefycart-navigation-terniary
+  .wp-block-navigation-item__content.wp-block-navigation-item__content:hover {
+  color: var(--wp--preset--color--terniary);
+}
+.is-style-grocefycart-navigation-terniary.wp-block-navigation
+  ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu
+  .wp-block-navigation-item__content.wp-block-navigation-item__content:hover {
+  color: var(--wp--preset--color--terniary);
+}
+/* ********** Button ********** */
+/* Page List Hidden Style */
+ul.is-style-grocefycart-page-list-hidden {
+  list-style: none;
+  padding-left: 0;
+}
+/* ********** Button ********** */
+/* Primary */
+.is-style-grocefycart-button-primary a:hover {
+  background-color: var(--wp--preset--color--primary) !important;
+  color: var(--wp--preset--color--light) !important;
+  transform: translateY(-3px);
+  transition: all 0.2s ease-in-out;
+}
+/* Secondary */
+.is-style-grocefycart-button-secondary a:hover {
+  background-color: var(--wp--preset--color--secondary) !important;
+  color: var(--wp--preset--color--light) !important;
+  transform: translateY(-3px);
+  transition: all 0.2s ease-in-out;
+}
+/* Terniary */
+.is-style-grocefycart-button-terniary a:hover {
+  background-color: var(--wp--preset--color--terniary) !important;
+  color: var(--wp--preset--color--white) !important;
+  transform: translateY(-3px);
+  transition: all 0.2s ease-in-out;
+}
+/* Arrow */
+.is-style-grocefycart-button-arrow > a,
+.is-style-grocefycart-button-up-arrow > a {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: 0.5s;
+}
+.is-style-grocefycart-button-arrow a::after,
+.is-style-grocefycart-button-up-arrow a::after {
+  content: "🡪";
+  opacity: 0;
+  font-size: larger;
+  transform: translateX(0px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0px;
+  height: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.is-style-grocefycart-button-arrow:hover a::after {
+  opacity: 1;
+  transform: translateX(5px);
+  width: 30px;
+  transition: all 0.2s ease-in-out;
+}
+
+.is-style-grocefycart-button-up-arrow:hover a::after {
+  opacity: 1;
+  transform: translateX(5px);
+  transform: rotate(-45deg);
+  width: 30px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* ********** Post Title ********** */
+.is-style-title-hover-primary.wp-block-post-title a:hover,
+.is-style-title-hover-secondary.wp-block-post-title a:hover {
+  background-size: 100% 3px;
+}
+.is-style-title-hover-primary a {
+  display: inline;
+  text-decoration: none;
+  background-image: linear-gradient(
+    var(--wp--preset--color--primary),
+    var(--wp--preset--color--primary)
+  );
+  background-position: 0 1.05em;
+  background-size: 0 3px;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s;
+}
+.is-style-title-hover-secondary a {
+  display: inline;
+  text-decoration: none;
+  background-image: linear-gradient(
+    var(--wp--preset--color--secondary),
+    var(--wp--preset--color--secondary)
+  );
+  background-position: 0 1.05em;
+  background-size: 0 3px;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s;
+}
+/* ********** Post Title ********** */
+.is-style-title-hover-primary.wp-block-post-title a:hover,
+.is-style-title-hover-secondary.wp-block-post-title a:hover,
+.is-style-title-hover-terniary.wp-block-post-title a:hover {
+  background-size: 100% 3px;
+}
+.is-style-title-hover-primary a {
+  display: inline;
+  text-decoration: none;
+  background-image: linear-gradient(
+    var(--wp--preset--color--primary),
+    var(--wp--preset--color--primary)
+  );
+  background-position: 0 1.05em;
+  background-size: 0 3px;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s;
+}
+.is-style-title-hover-secondary a {
+  display: inline;
+  text-decoration: none;
+  background-image: linear-gradient(
+    var(--wp--preset--color--secondary),
+    var(--wp--preset--color--secondary)
+  );
+  background-position: 0 1.05em;
+  background-size: 0 3px;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s;
+}
+.is-style-title-hover-terniary a {
+  display: inline;
+  text-decoration: none;
+  background-image: linear-gradient(
+    var(--wp--preset--color--terniary),
+    var(--wp--preset--color--terniary)
+  );
+  background-position: 0 1.05em;
+  background-size: 0 3px;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s;
+}
+/* ********** Image *********** */
+.is-style-grocefycart-hover-zoom-in,
+.is-style-grocefycart-hover-zoom-out {
+  overflow: hidden;
+}
+.is-style-grocefycart-hover-zoom-in img,
+.is-style-grocefycart-hover-zoom-out:hover img {
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
+}
+.is-style-grocefycart-hover-zoom-in:hover img,
+.is-style-grocefycart-hover-zoom-out img {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+/* Spin */
+.is-style-grocefycart-animation-spin img {
+  animation: spin 2s linear infinite;
+  animation-play-state: running;
+}
+.is-style-grocefycart-animation-spin img:hover {
+  animation: spin 2s linear infinite;
+  animation-play-state: paused;
+}
+.is-style-grocefycart-hover-animation-spin:hover img {
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Pulse */
+.is-style-grocefycart-animation-pulse img {
+  animation: pulse 2s infinite;
+}
+.is-style-grocefycart-hover-animation-pulse:hover img {
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* ********** List Style ********** */
+ul.is-style-grocefycart-list-style-none {
+  list-style: none;
+  padding: 0px;
+}
+/* ********** Pagination ********** */
+/* Primary */
+nav.is-style-grocefycart-pagination-primary {
+  gap: 1em;
+}
+nav.is-style-grocefycart-pagination-primary
+  .wp-block-query-pagination-numbers
+  .page-numbers.current {
+  padding: 6px 14px;
+  border: 1px solid var(--wp--preset--color--border-color);
+  background-color: var(--wp--preset--color--primary);
+}
+nav.is-style-grocefycart-pagination-primary
+  .wp-block-query-pagination-numbers
+  a,
+nav.is-style-grocefycart-pagination-primary .wp-block-query-pagination-next,
+nav.is-style-grocefycart-pagination-primary
+  .wp-block-query-pagination-previous {
+  padding: 6px 14px;
+  border: 1px solid var(--wp--preset--color--border-color);
+}
+nav.is-style-grocefycart-pagination-primary
+  .wp-block-query-pagination-numbers
+  a:hover,
+nav.is-style-grocefycart-pagination-primary
+  .wp-block-query-pagination-next:hover,
+nav.is-style-grocefycart-pagination-primary
+  .wp-block-query-pagination-previous:hover {
+  background-color: var(--wp--preset--color--primary);
+}
+/* Secondary */
+nav.is-style-grocefycart-pagination-secondary {
+  gap: 1em;
+}
+nav.is-style-grocefycart-pagination-secondary
+  .wp-block-query-pagination-numbers
+  .page-numbers.current {
+  padding: 6px 14px;
+  border: 1px solid var(--wp--preset--color--border-color);
+  background-color: var(--wp--preset--color--secondary);
+}
+nav.is-style-grocefycart-pagination-secondary
+  .wp-block-query-pagination-numbers
+  a,
+nav.is-style-grocefycart-pagination-secondary .wp-block-query-pagination-next,
+nav.is-style-grocefycart-pagination-secondary
+  .wp-block-query-pagination-previous {
+  padding: 6px 14px;
+  border: 1px solid var(--wp--preset--color--border-color);
+}
+nav.is-style-grocefycart-pagination-secondary
+  .wp-block-query-pagination-numbers
+  a:hover,
+nav.is-style-grocefycart-pagination-secondary
+  .wp-block-query-pagination-next:hover,
+nav.is-style-grocefycart-pagination-secondary
+  .wp-block-query-pagination-previous:hover {
+  background-color: var(--wp--preset--color--secondary);
+}
+/* Terniary */
+nav.is-style-grocefycart-pagination-terniary {
+  gap: 1em;
+}
+nav.is-style-grocefycart-pagination-terniary
+  .wp-block-query-pagination-numbers
+  .page-numbers.current {
+  padding: 6px 14px;
+  border: 1px solid var(--wp--preset--color--border-color);
+  background-color: var(--wp--preset--color--terniary);
+}
+nav.is-style-grocefycart-pagination-terniary
+  .wp-block-query-pagination-numbers
+  a,
+nav.is-style-grocefycart-pagination-terniary .wp-block-query-pagination-next,
+nav.is-style-grocefycart-pagination-terniary
+  .wp-block-query-pagination-previous {
+  padding: 6px 14px;
+  border: 1px solid var(--wp--preset--color--border-color);
+}
+nav.is-style-grocefycart-pagination-terniary
+  .wp-block-query-pagination-numbers
+  a:hover,
+nav.is-style-grocefycart-pagination-terniary
+  .wp-block-query-pagination-next:hover,
+nav.is-style-grocefycart-pagination-terniary
+  .wp-block-query-pagination-previous:hover {
+  background-color: var(--wp--preset--color--terniary);
+}
+
+/* ********** WooCommerce Blocks ********** */
+/* Product in Stock */
+.is-style-grocefycart-wc-custom-psi-rounded,
+.is-style-grocefycart-wc-custom-psi-pointed {
+  display: inline-flex;
+}
+.is-style-grocefycart-wc-custom-psi-rounded {
+  border-radius: 100px;
+}
+/* Add To Cart */
+.is-style-grocefycart-wc-btn-primary:hover > button {
+  background-color: var(--wp--preset--color--primary) !important;
+  color: var(--wp--preset--color--white) !important;
+  transition: all 0.2s ease-in-out;
+}
+.is-style-grocefycart-wc-btn-secondary:hover > button {
+  background-color: var(--wp--preset--color--secondary) !important;
+  color: var(--wp--preset--color--dark-shade) !important;
+  transition: all 0.2s ease-in-out;
+}
+.is-style-grocefycart-wc-btn-terniary:hover > button {
+  background-color: var(--wp--preset--color--terniary) !important;
+  color: var(--wp--preset--color--white) !important;
+  transition: all 0.2s ease-in-out;
+}
+.is-style-grocefycart-wc-btn-faded:hover > button {
+  background-color: color-mix(
+    in srgb,
+    var(--wp--preset--color--primary) 10%,
+    transparent
+  );
+  color: var(--wp--preset--color--dark-shade) !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.is-style-grocefycart-wc-btn-icon button span {
+  display: flex;
+}
+.is-style-grocefycart-wc-btn-icon button {
+  transform: translateY(0);
+  transition: all 0.2s ease-in-out;
+}
+.is-style-grocefycart-wc-btn-icon button:hover {
+  transform: translateY(-3px);
+  transition: all 0.2s ease-in-out;
+  background-color: var(--wp--preset--color--primary);
+}
+.is-style-grocefycart-wc-btn-icon button span:before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask-image: url(../images/cart-icon.png);
+  mask-image: url(../images/cart-icon.png);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  margin-right: 5px;
+}
+
+/* Product Price */
+/* Strikeout Price Hidden */
+.is-style-grocefycart-wc-hide-strikeout del {
+  display: none !important;
+}
+/* Strikeout Price Primary */
+.is-style-grocefycart-wc-strikeout-primary del {
+  color: var(--wp--preset--color--primary) !important;
+}
+/* Strikeout Price Secondary */
+.is-style-grocefycart-wc-strikeout-secondary del {
+  color: var(--wp--preset--color--secondary) !important;
+}
+/* Strikeout Price Terniary */
+.is-style-grocefycart-wc-strikeout-terniary del {
+  color: var(--wp--preset--color--terniary) !important;
+}
+/* Strikeout Price Foreground */
+.is-style-grocefycart-wc-strikeout-foreground del {
+  color: var(--wp--preset--color--foreground) !important;
+}
+/* Product Image -Sales Badge*/
+/* Primary */
+.is-style-grocefycart-sales-badge-primary
+  div.wc-block-components-product-sale-badge {
+  background-color: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--light);
+  border: none;
+  border-radius: 100px;
+}
+/* Secondary */
+.is-style-grocefycart-sales-badge-secondary
+  div.wc-block-components-product-sale-badge {
+  background-color: var(--wp--preset--color--secondary);
+  color: var(--wp--preset--color--light);
+  border: none;
+  border-radius: 100px;
+}
+/* Terniary */
+.is-style-grocefycart-sales-badge-terniary
+  div.wc-block-components-product-sale-badge {
+  background-color: var(--wp--preset--color--terniary);
+  color: var(--wp--preset--color--light);
+  border: none;
+  border-radius: 100px;
+}
+/* ********** Product Categories ********** */
+/* Primary */
+.is-style-grocefycart-wc-categories-primary ul {
+  padding: 0;
+}
+.is-style-grocefycart-wc-categories-primary ul li:not(:last-child) {
+  padding-bottom: 1em;
+  border-bottom: 1px solid var(--wp--preset--color--primary);
+}
+.is-style-grocefycart-wc-categories-primary ul li {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 1em 0 !important;
+  width: 100%;
+}
+.is-style-grocefycart-wc-categories-primary ul li a span {
+  width: 30px;
+  height: 30px;
+  border: none !important;
+  margin: 0 1em 0 0 !important;
+}
+/* Secondary */
+.is-style-grocefycart-wc-categories-secondary ul {
+  padding: 0;
+}
+.is-style-grocefycart-wc-categories-secondary ul li:not(:last-child) {
+  padding-bottom: 1em;
+  border-bottom: 1px solid var(--wp--preset--color--secondary);
+}
+.is-style-grocefycart-wc-categories-secondary ul li {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 1em 0 !important;
+  width: 100%;
+}
+.is-style-grocefycart-wc-categories-secondary ul li a span {
+  width: 30px;
+  height: 30px;
+  border: none !important;
+  margin: 0 1em 0 0 !important;
+}
+/* Terniary */
+.is-style-grocefycart-wc-categories-terniary ul {
+  padding: 0;
+}
+.is-style-grocefycart-wc-categories-terniary ul li:not(:last-child) {
+  padding-bottom: 1em;
+  border-bottom: 1px solid var(--wp--preset--color--terniary);
+}
+.is-style-grocefycart-wc-categories-terniary ul li {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 1em 0 !important;
+  width: 100%;
+}
+.is-style-grocefycart-wc-categories-terniary ul li a span {
+  width: 30px;
+  height: 30px;
+  border: none !important;
+  margin: 0 1em 0 0 !important;
+}
+/* Border */
+.is-style-grocefycart-wc-categories-border ul {
+  padding: 0;
+}
+.is-style-grocefycart-wc-categories-border ul li:not(:last-child) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1em;
+  margin: 0 0 1em 0 !important;
+  border-bottom: 1px solid var(--wp--preset--color--border-color);
+  width: 100%;
+}
+.is-style-grocefycart-wc-categories-border ul li:last-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0;
+  margin: 0 !important;
+  width: 100%;
+}
+.is-style-grocefycart-wc-categories-border ul li a span {
+  width: 30px;
+  height: 30px;
+  border: none !important;
+  margin: 0 1em 0 0 !important;
+}
+/* Catalog Sorting */
+/* Primary */
+.is-style-grocefycart-wc-sorting-primary select {
+  background-color: var(--wp--preset--color--primary);
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+}
+/* Secondary */
+.is-style-grocefycart-wc-sorting-secondary select {
+  background-color: var(--wp--preset--color--secondary);
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+}
+/* Terniary */
+.is-style-grocefycart-wc-sorting-terniary select {
+  background-color: var(--wp--preset--color--terniary);
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+}
