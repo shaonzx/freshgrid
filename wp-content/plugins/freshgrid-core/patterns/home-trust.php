@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 $freshgrid_items = array(
 	array( 'pin', __( 'Delivering nationwide', 'freshgrid-core' ), __( 'Inside Dhaka ৳60, outside Dhaka ৳120', 'freshgrid-core' ) ),
 	array( 'cash', __( 'Cash on Delivery', 'freshgrid-core' ), __( 'Pay when your order arrives', 'freshgrid-core' ) ),
-	array( 'phone', __( 'Support hotline', 'freshgrid-core' ), __( '+880 1XXX-XXXXXX, 8 am to 10 pm', 'freshgrid-core' ) ),
+	array( 'phone', __( 'Support hotline', 'freshgrid-core' ), __( '+880 1557-608838, 8 am to 10 pm', 'freshgrid-core' ) ),
 );
 ?>
 <!-- wp:group {"backgroundColor":"heading","textColor":"background","className":"fg-trust","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"28px","bottom":"28px","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"constrained","contentSize":"1260px"}} -->

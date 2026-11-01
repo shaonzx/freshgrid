@@ -14,9 +14,12 @@ $freshgrid_options = array(
 	'date_format'                                     => 'j F Y',
 	'time_format'                                     => 'g:i a',
 	'woocommerce_default_country'                     => 'BD:BD-13',
-	'woocommerce_store_address'                       => 'House 00, Road 00, Dhanmondi',
+	'woocommerce_store_address'                       => '13th Floor, Tower A, Road #17',
+	'woocommerce_store_address_2'                     => 'Kamal Atatürk Avenue, Banani',
 	'woocommerce_store_city'                          => 'Dhaka',
-	'woocommerce_store_postcode'                      => '1205',
+	'woocommerce_store_postcode'                      => '1213',
+	'woocommerce_email_from_name'                     => 'Srijon FreshGrid',
+	'woocommerce_email_from_address'                  => 'nazmul@srijon.tech',
 	'woocommerce_allowed_countries'                   => 'specific',
 	'woocommerce_specific_allowed_countries'          => array( 'BD' ),
 	'woocommerce_ship_to_countries'                   => '',
@@ -60,6 +63,12 @@ $freshgrid_options = array(
 foreach ( $freshgrid_options as $freshgrid_name => $freshgrid_value ) {
 	update_option( $freshgrid_name, $freshgrid_value );
 }
+
+// WP Mail SMTP forces its From address over WooCommerce's, so the two must match.
+$freshgrid_mail_smtp                      = (array) get_option( 'wp_mail_smtp', array() );
+$freshgrid_mail_smtp['mail']['from_email'] = 'nazmul@srijon.tech';
+$freshgrid_mail_smtp['mail']['from_name']  = 'Srijon FreshGrid';
+update_option( 'wp_mail_smtp', $freshgrid_mail_smtp );
 
 $freshgrid_profile              = (array) get_option( 'woocommerce_onboarding_profile', array() );
 $freshgrid_profile['skipped']   = true;

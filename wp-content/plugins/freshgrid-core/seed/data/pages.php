@@ -1,8 +1,7 @@
 <?php
 /**
  * Placeholder page content. Each section is [ heading, body ]. A body item is a
- * paragraph string, or an array for a bullet list. Replace the "00" address,
- * phone and email placeholders before launch.
+ * paragraph string, or an array for a bullet list.
  *
  * @package FreshGridCore
  */
@@ -53,16 +52,16 @@ return array(
 				array( 'We would love to hear from you. For order questions, please keep your order number handy.' ),
 			),
 			array(
-				'Our office',
-				array( 'Srijon FreshGrid, House 00, Road 00, Dhanmondi, Dhaka 1205, Bangladesh' ),
+				'Corporate office',
+				array( 'Srijon FreshGrid, 13th Floor, Tower A, Road #17, Kamal Atatürk Avenue, Banani, Dhaka-1213, Bangladesh' ),
 			),
 			array(
 				'Phone and email',
 				array(
 					array(
-						'Hotline: +880 1XXX-XXXXXX',
-						'WhatsApp: +880 1XXX-XXXXXX',
-						'Email: support@freshgrid.example',
+						'Contact person: Md. Nazmul Hossain, Director',
+						'Hotline: +880 1557-608838',
+						'Email: nazmul@srijon.tech',
 					),
 				),
 			),
@@ -109,7 +108,7 @@ return array(
 			),
 			array(
 				'Request a quote',
-				array( 'Call +880 1XXX-XXXXXX or email wholesale@freshgrid.example with your business name, delivery area and product list. Small bulk orders can also be placed directly: look for the bulk pack sizes in our [fg_link to="shop"]shop[/fg_link].' ),
+				array( 'Contact Md. Nazmul Hossain, Director, on +880 1557-608838 or at nazmul@srijon.tech with your business name, delivery area and product list. Small bulk orders can also be placed directly: look for the bulk pack sizes in our [fg_link to="shop"]shop[/fg_link].' ),
 			),
 		),
 		'cta'      => array( 'Contact our wholesale team', 'contact' ),
