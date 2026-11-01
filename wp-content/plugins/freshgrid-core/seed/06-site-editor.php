@@ -64,4 +64,30 @@ freshgrid_seed_upsert_theme_post(
 	)
 );
 
-WP_CLI::success( 'Template parts and front page template seeded.' );
+// Shop and category archives: the theme's template with a visible Add to Cart button and sale badge.
+// The theme hides the button in an image overlay on hover, which touch screens never trigger.
+$freshgrid_archive = file_get_contents( get_template_directory() . '/templates/archive-product.html' );
+$freshgrid_edits   = array(
+	'#"showSaleBadge":false#'                     => '"showSaleBadge":true',
+	'#<!-- wp:woocommerce/product-button .*? /-->#' => '',
+	'#(<!-- wp:woocommerce/product-rating .*? /-->)#' => '$1' . "\n\n" . '<!-- wp:woocommerce/product-button {"textAlign":"left","isDescendentOfQueryLoop":true,"fontSize":"small"} /-->',
+	'#is-style-grocefycart-wc-sorting-terniary#'  => 'fg-sorting',
+	'#is-style-grocefycart-pagination-terniary#'  => 'fg-pagination',
+);
+foreach ( $freshgrid_edits as $freshgrid_pattern => $freshgrid_replacement ) {
+	$freshgrid_archive = preg_replace( $freshgrid_pattern, $freshgrid_replacement, $freshgrid_archive, 1, $freshgrid_count );
+	// Stop before saving: a theme update may have changed the markup these edits expect.
+	if ( ! $freshgrid_count ) {
+		WP_CLI::error( "Shop template edit did not apply: {$freshgrid_pattern}" );
+	}
+}
+freshgrid_seed_upsert_theme_post(
+	'wp_template',
+	'archive-product',
+	array(
+		'post_title'   => 'Product Catalog',
+		'post_content' => $freshgrid_archive,
+	)
+);
+
+WP_CLI::success( 'Template parts, front page and shop templates seeded.' );

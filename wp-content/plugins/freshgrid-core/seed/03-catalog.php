@@ -59,6 +59,10 @@ function freshgrid_seed_pack_size( $label ) {
 	return (float) $label * ( $is_grams ? 0.001 : 1 );
 }
 
+// Homepage banners, looked up by the patterns.
+freshgrid_seed_catalog_image( 'hero', 'Fresh vegetables at a market' );
+freshgrid_seed_catalog_image( 'wholesale', 'Basket of vegetables on the way to market' );
+
 // Categories.
 $freshgrid_order = 0;
 foreach ( $freshgrid_catalog['categories'] as $freshgrid_slug => list( $freshgrid_name, $freshgrid_desc, $freshgrid_image ) ) {

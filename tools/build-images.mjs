@@ -52,7 +52,7 @@ function placeholder(label) {
 	const leaf = 'M88 12C52 6 12 24 12 60c0 16 12 28 28 28C76 88 94 48 88 12Z';
 	const lines = label.split(' & ');
 	const text = lines
-		.map((line, i) => `<text x="600" y="${800 + i * 76}" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="64" font-weight="600" fill="#1F2A25">${line}</text>`)
+		.map((line, i) => `<text x="600" y="${860 + i * 120}" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="104" font-weight="600" fill="#1F2A25">${line}</text>`)
 		.join('');
 	return Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200">
 <rect width="1200" height="1200" fill="#F4F8F5"/>
