@@ -1,0 +1,13 @@
+# WordPress core: don't track, it's reinstalled, not edited
+/wp-admin/
+/wp-includes/
+/*.php
+!/index.php
+wp-config.php
+.htaccess
+
+# Content that isn't code
+/wp-content/uploads/
+/wp-content/upgrade/
+/wp-content/cache/
+/wp-content/debug.log
