@@ -16,19 +16,35 @@ mkdirSync(outDir, { recursive: true });
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function download(url) {
-	for (let attempt = 0; attempt < 4; attempt++) {
+// Prefer the standard 1280px thumbnail: lighter for Wikimedia and enough for a 1200px result.
+function thumbUrl(url) {
+	const match = url.match(/^(.*\/commons\/)(.\/..\/)([^/?]+)/);
+	return match ? `${match[1]}thumb/${match[2]}${match[3]}/1280px-${match[3]}` : url;
+}
+
+async function fetchRetry(url) {
+	for (let attempt = 0; attempt < 5; attempt++) {
 		const res = await fetch(url, { headers: { 'User-Agent': UA } });
-		if (res.ok) {
-			return Buffer.from(await res.arrayBuffer());
-		}
 		if (res.status !== 429) {
-			throw new Error(`HTTP ${res.status}`);
+			return res;
 		}
-		console.log('rate limited, waiting 90s');
-		await sleep(90000);
+		const wait = Math.max(Number(res.headers.get('retry-after')) || 0, 120);
+		console.log(`rate limited, waiting ${wait}s`);
+		await sleep(wait * 1000);
 	}
-	throw new Error('rate limited');
+	throw new Error('still rate limited');
+}
+
+async function download(url) {
+	// A thumbnail wider than the original doesn't exist, so fall back to the original.
+	let res = await fetchRetry(thumbUrl(url));
+	if (!res.ok) {
+		res = await fetchRetry(url);
+	}
+	if (!res.ok) {
+		throw new Error(`HTTP ${res.status}`);
+	}
+	return Buffer.from(await res.arrayBuffer());
 }
 
 // Colors match the Global Styles palette at the time of writing.
@@ -54,6 +70,7 @@ const credits = [
 	'|---|---|---|---|',
 ];
 const placeholders = [];
+const failed = [];
 
 for (const [key, item] of Object.entries(manifest)) {
 	const file = join(outDir, `${key}.webp`);
@@ -63,10 +80,16 @@ for (const [key, item] of Object.entries(manifest)) {
 		continue;
 	}
 	if (!existsSync(file)) {
-		const source = await download(item.url);
-		await sharp(source).rotate().resize({ width: 1200, height: 1200, fit: 'inside', withoutEnlargement: true }).webp({ quality: 78 }).toFile(file);
-		console.log(key);
-		await sleep(2500);
+		try {
+			const source = await download(item.url);
+			await sharp(source).rotate().resize({ width: 1200, height: 1200, fit: 'inside', withoutEnlargement: true }).webp({ quality: 78 }).toFile(file);
+			console.log(key);
+		} catch (error) {
+			console.log(`FAILED ${key}: ${error.message}`);
+			failed.push(key);
+			continue;
+		}
+		await sleep(15000);
 	}
 	const author = (item.artist || 'Unknown').replace(/\|/g, '/').replace(/\s+/g, ' ');
 	credits.push(`| \`${key}.webp\` | [${item.title.replace('File:', '').replace(/\|/g, '/')}](${item.page}) | ${item.license} | ${author} |`);
@@ -74,4 +97,8 @@ for (const [key, item] of Object.entries(manifest)) {
 
 credits.push('', '## Branded placeholders', '', 'No suitable free photo was found for these, so they are generated in brand colors. Replace them with real product photos when available.', '', ...placeholders, '');
 writeFileSync(join(seed, 'IMAGE_CREDITS.md'), credits.join('\n'));
-console.log(`done: ${credits.length} lines, ${placeholders.length} placeholders`);
+console.log(`done: ${placeholders.length} placeholders, ${failed.length} failed`);
+if (failed.length) {
+	console.log(`Re-run to retry: ${failed.join(', ')}`);
+	process.exit(1);
+}
