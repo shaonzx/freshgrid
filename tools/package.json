@@ -1,0 +1,10 @@
+{
+  "name": "freshgrid-tools",
+  "private": true,
+  "type": "module",
+  "description": "Local build tooling for brand exports and image processing. Not deployed.",
+  "dependencies": {
+    "fontkit": "^2.0.4",
+    "sharp": "^0.34.3"
+  }
+}
