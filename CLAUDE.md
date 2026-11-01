@@ -32,11 +32,39 @@ To regenerate `.htaccess`, WP-CLI needs a config declaring `apache_modules: [mod
 ```
 freshgrid-core.php   bootstrap
 inc/store.php        BD locale, free-shipping preference, classic checkout fallback
+inc/links.php        [fg_link], [fg_year], freshgrid/link block binding: URLs resolved at render time
+inc/patterns.php     registers homepage patterns, shared pattern helpers
 inc/assets.php       enqueues assets/css/frontend.css
-assets/css/          polish CSS
-seed/lib.php         idempotent helpers, loaded by every seed
+patterns/            homepage sections (PHP, run at render time)
+assets/css/          polish CSS, presets only
+assets/brand/        logo SVGs and PNGs, see its README
+seed/lib.php         idempotent helpers, loaded by the seeds
+seed/0*-*.php        the seeds, in run order
+seed/verify.php      read-only health check
+seed/data/           catalog, page copy, image manifest
+seed/markup/         header, footer and front page block markup
+seed/images/         processed product photos and placeholders
+seed/IMAGE_CREDITS.md
 ```
+
+`tools/` at the site root holds Node build scripts for logos and images (`npm install` first). It is not deployed.
+
+## Re-running the seeds
+
+From the site root, in order, each with `php -d extension=gd C:/wp-cli/wp-cli.phar eval-file wp-content/plugins/freshgrid-core/seed/<file>`:
+
+`01-store-settings.php`, `02-branding.php`, `03-catalog.php`, `04-pages.php`, `05-navigation.php`, `06-site-editor.php`, then `verify.php`.
+
+They never duplicate, but they do **overwrite**: re-running resets those settings, products, pages, menus, templates and Global Styles to the seed values, discarding edits made in wp-admin. On a site with real edits, run only the seed you need, after a backup.
+
+## Things that bite
+
+- Menus store IDs plus block bindings (`core/post-data`, `core/term-data`, `freshgrid/link`), never URLs. Keep it that way.
+- `06-site-editor.php` builds the shop template from the theme's `archive-product.html` and stops with an error if a theme update changes the markup it edits.
+- Importing images needs GD (see above). The local Apache PHP has GD off too, so uploads through wp-admin locally get no thumbnails.
+- `wp_insert_post()` under WP-CLI has no user: `seed/lib.php` sets an admin and removes KSES, otherwise terms are silently dropped and block markup is altered.
+- When choosing meat photos check the file title, not just the look: halal products must not show pork.
 
 ## Deployment
 
-The owner deploys by hand: file upload (including `wp-content/uploads`) plus a DB export with `wp search-replace`. Don't upload `backups/` or `tools/`.
+The owner deploys by hand: file upload (including `wp-content/uploads`) plus a DB export with `wp search-replace`. Don't upload `backups/` or `tools/`. `.htaccess` is git-ignored and has a path-specific `RewriteBase`: after deploying, re-save Settings > Permalinks on the server.
