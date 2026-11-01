@@ -11,3 +11,7 @@ wp-config.php
 /wp-content/upgrade/
 /wp-content/cache/
 /wp-content/debug.log
+
+# Local DB backups and build tooling: never deployed
+/backups/
+/tools/node_modules/
