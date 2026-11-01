@@ -93,19 +93,16 @@ $freshgrid_styles = array(
 	),
 );
 
-$freshgrid_user_data = WP_Theme_JSON_Resolver::get_user_data_from_wp_global_styles( wp_get_theme(), true );
-
-$freshgrid_result = wp_update_post(
+// The slug WordPress itself uses for this theme's Global Styles post.
+$freshgrid_styles_id = freshgrid_seed_upsert_theme_post(
+	'wp_global_styles',
+	'wp-global-styles-' . rawurlencode( get_stylesheet() ),
 	array(
-		'ID'           => $freshgrid_user_data['ID'],
-		'post_content' => wp_slash( wp_json_encode( $freshgrid_styles ) ),
-	),
-	true
+		'post_title'   => 'Custom Styles',
+		'post_content' => wp_json_encode( $freshgrid_styles ),
+	)
 );
-if ( is_wp_error( $freshgrid_result ) ) {
-	WP_CLI::error( $freshgrid_result->get_error_message() );
-}
 
 WP_Theme_JSON_Resolver::clean_cached_data();
 
-WP_CLI::success( "Branding applied. Logo {$freshgrid_logo}, icon {$freshgrid_icon}, global styles {$freshgrid_user_data['ID']}." );
+WP_CLI::success( "Branding applied. Logo {$freshgrid_logo}, icon {$freshgrid_icon}, global styles {$freshgrid_styles_id}." );

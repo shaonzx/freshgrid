@@ -7,6 +7,34 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// WP-CLI runs with no user: capability-gated saves silently drop terms and sanitize block markup.
+$freshgrid_admins = get_users(
+	array(
+		'role'   => 'administrator',
+		'number' => 1,
+		'fields' => 'ID',
+	)
+);
+if ( $freshgrid_admins ) {
+	wp_set_current_user( (int) $freshgrid_admins[0] );
+}
+kses_remove_filters();
+
+/**
+ * Create or update a site editor entity (global styles, template, template part)
+ * and tie it to the active theme.
+ *
+ * @param string $post_type Post type.
+ * @param string $slug      Post slug.
+ * @param array  $args      Fields for wp_insert_post().
+ * @return int Post ID.
+ */
+function freshgrid_seed_upsert_theme_post( $post_type, $slug, array $args ) {
+	$id = freshgrid_seed_upsert_post( $post_type, $slug, $args );
+	wp_set_object_terms( $id, get_stylesheet(), 'wp_theme' );
+	return $id;
+}
+
 /**
  * Create or update a post, matched by post type and slug.
  *
