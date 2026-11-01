@@ -68,3 +68,5 @@ They never duplicate, but they do **overwrite**: re-running resets those setting
 ## Deployment
 
 The owner deploys by hand: file upload (including `wp-content/uploads`) plus a DB export with `wp search-replace`. Don't upload `backups/` or `tools/`. `.htaccess` is git-ignored and has a path-specific `RewriteBase`: after deploying, re-save Settings > Permalinks on the server.
+
+Export with `wp search-replace <local-url> <server-url> --all-tables-with-prefix --skip-columns=guid --export=<file>`. Without `--all-tables-with-prefix` WooCommerce tables can be left out. The file has no SQL mode line, so a strict server rejects its zero dates: prepend `SET NAMES utf8mb4; SET SESSION sql_mode='NO_AUTO_VALUE_ON_ZERO'; SET FOREIGN_KEY_CHECKS=0;`. Importing replaces the server's data, so never overwrite a store that has real orders.
