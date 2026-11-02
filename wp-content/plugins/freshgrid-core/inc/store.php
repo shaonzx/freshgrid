@@ -55,3 +55,23 @@ function freshgrid_classic_checkout_fields( $fields ) {
 	return $fields;
 }
 add_filter( 'woocommerce_checkout_fields', 'freshgrid_classic_checkout_fields' );
+
+/**
+ * Many hosts disable PHP's mail(). PHPMailer then throws an Error that wp_mail()
+ * doesn't catch, which kills checkout after the order is created. Skip the send
+ * and log it instead, unless WP Mail SMTP is set to a mailer that doesn't need mail().
+ *
+ * @param null|bool $short_circuit Existing short-circuit value.
+ * @return null|bool
+ */
+function freshgrid_skip_mail_when_unavailable( $short_circuit ) {
+	if ( null !== $short_circuit || function_exists( 'mail' ) ) {
+		return $short_circuit;
+	}
+	if ( class_exists( 'WPMailSMTP\Options' ) && 'mail' !== WPMailSMTP\Options::init()->get( 'mail', 'mailer' ) ) {
+		return $short_circuit;
+	}
+	error_log( 'FreshGrid: email not sent because mail() is disabled on this server. Configure SMTP in WP Mail SMTP.' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions
+	return false;
+}
+add_filter( 'pre_wp_mail', 'freshgrid_skip_mail_when_unavailable' );
