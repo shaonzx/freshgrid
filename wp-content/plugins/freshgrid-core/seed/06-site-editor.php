@@ -66,8 +66,16 @@ freshgrid_seed_upsert_theme_post(
 
 // Shop and category archives: the theme's template with a visible Add to Cart button and sale badge.
 // The theme hides the button in an image overlay on hover, which touch screens never trigger.
+// The theme's core Query Loop is swapped for Product Collection, as in WooCommerce's own template:
+// the button gets its product ID from context only that block provides, and otherwise ignores clicks.
 $freshgrid_archive = file_get_contents( get_template_directory() . '/templates/archive-product.html' );
 $freshgrid_edits   = array(
+	'#<!-- wp:query \{.*?\} -->\s*<div class="wp-block-query">#' => '<!-- wp:woocommerce/product-collection {"queryId":2,"query":{"woocommerceAttributes":[],"woocommerceStockStatus":["instock","outofstock","onbackorder"],"taxQuery":{},"isProductCollectionBlock":true,"perPage":10,"pages":0,"offset":0,"postType":"product","order":"asc","orderBy":"title","author":"","search":"","exclude":[],"sticky":"","inherit":true},"tagName":"div","dimensions":{"widthType":"fill","fixedWidth":""},"displayLayout":{"type":"flex","columns":4,"shrinkColumns":true},"convertedFromProducts":false,"queryContextIncludes":["collection"]} -->' . "\n" . '<div class="wp-block-woocommerce-product-collection">',
+	'#<!-- wp:post-template \{.*?\} -->#'         => '<!-- wp:woocommerce/product-template {"className":"fg-shop-products"} -->',
+	'#<!-- /wp:post-template -->#'                => '<!-- /wp:woocommerce/product-template -->',
+	'#<!-- wp:query-no-results -->#'              => '<!-- wp:woocommerce/product-collection-no-results -->',
+	'#<!-- /wp:query-no-results -->#'             => '<!-- /wp:woocommerce/product-collection-no-results -->',
+	'#<!-- /wp:query -->#'                        => '<!-- /wp:woocommerce/product-collection -->',
 	'#"showSaleBadge":false#'                     => '"showSaleBadge":true',
 	'#<!-- wp:woocommerce/product-button .*? /-->#' => '',
 	'#(<!-- wp:woocommerce/product-rating .*? /-->)#' => '$1' . "\n\n" . '<!-- wp:woocommerce/product-button {"textAlign":"left","isDescendentOfQueryLoop":true,"fontSize":"small"} /-->',

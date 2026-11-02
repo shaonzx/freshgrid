@@ -318,6 +318,16 @@
 	padding: 9px 10px;
 	white-space: normal;
 }
+/* The shop template's cards come from the theme's own group, so the list item stays plain. */
+.wc-block-product-template.fg-shop-products .wc-block-product {
+	padding: 0;
+	background: none;
+	border: 0;
+	border-radius: 0;
+}
+.fg-shop-products .grocefycart-product-group-wrapper {
+	flex: 1;
+}
 
 /* Two products per row on phones instead of WooCommerce's shrink-to-fit default. */
 @media (max-width: 599px) {
