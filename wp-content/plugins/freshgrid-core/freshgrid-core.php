@@ -23,3 +23,4 @@ require_once FRESHGRID_CORE_DIR . 'inc/store.php';
 require_once FRESHGRID_CORE_DIR . 'inc/links.php';
 require_once FRESHGRID_CORE_DIR . 'inc/patterns.php';
 require_once FRESHGRID_CORE_DIR . 'inc/assets.php';
+require_once FRESHGRID_CORE_DIR . 'inc/upgrade.php';
