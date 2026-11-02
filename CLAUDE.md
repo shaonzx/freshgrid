@@ -64,6 +64,8 @@ They never duplicate, but they do **overwrite**: re-running resets those setting
 - Importing images needs GD (see above). The local Apache PHP has GD off too, so uploads through wp-admin locally get no thumbnails.
 - `wp_insert_post()` under WP-CLI has no user: `seed/lib.php` sets an admin and removes KSES, otherwise terms are silently dropped and block markup is altered.
 - When choosing meat photos check the file title, not just the look: halal products must not show pork.
+- Run WP-CLI from PowerShell, not Git Bash, for any argument starting with `/`: Git Bash rewrites `/%postname%/` to `/C:/Program%20Files/Git/%postname%/`. Pages and products don't use that setting, so normal testing won't show it.
+- `wp search-replace` without `--export` changes the local DB: the local site then 404s with no styles or images. To undo, swap the two URLs and run it again.
 
 ## Deployment
 

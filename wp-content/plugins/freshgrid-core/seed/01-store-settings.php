@@ -10,6 +10,7 @@ defined( 'ABSPATH' ) || exit;
 
 $freshgrid_options = array(
 	// Location and currency.
+	'permalink_structure'                             => '/%postname%/',
 	'timezone_string'                                 => 'Asia/Dhaka',
 	'date_format'                                     => 'j F Y',
 	'time_format'                                     => 'g:i a',
